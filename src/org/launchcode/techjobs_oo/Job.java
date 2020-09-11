@@ -20,6 +20,7 @@ public class Job {
     public Job() {
         id = nextId;
         nextId++;
+
     }
 
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
@@ -95,5 +96,33 @@ public class Job {
 
     public int getId() {
         return id;
+    }
+
+
+    //Creating a toString method
+
+
+    @Override
+    public String toString() {
+            String printJob = "\n" +
+                    "ID: " + id + "\n" +
+                    "Name: " + name + "\n" +
+                    "Employer: " + employer + "\n" +
+                    "Location: " + location + "\n" +
+                    "PositionType: " + positionType + "\n" +
+                    "CoreCompetency: " + coreCompetency + "\n"
+                    ;
+        if (printJob.contains("null")) {
+            String replacedValues = printJob.replace("null", "Data not available");
+
+            return replacedValues;
+        }
+        return printJob;
+    }
+    public static void main(String[] args) {
+        Job test_job_3;
+        test_job_3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
+        System.out.println(test_job_3);
+
     }
 }

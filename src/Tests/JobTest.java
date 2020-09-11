@@ -4,8 +4,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.launchcode.techjobs_oo.*;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class JobTest {
 
@@ -52,4 +52,10 @@ public class JobTest {
         assertFalse(test_job_3.equals(test_job_4));
 
     }
+
+//    @Test
+//    public void testToStringHasBlankLinesBeforeAndAfter(){
+//
+//        assertEquals();
+//    }
 }
