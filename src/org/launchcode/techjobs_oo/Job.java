@@ -109,8 +109,8 @@ public class Job {
                     "Name: " + name + "\n" +
                     "Employer: " + employer + "\n" +
                     "Location: " + location + "\n" +
-                    "PositionType: " + positionType + "\n" +
-                    "CoreCompetency: " + coreCompetency + "\n"
+                    "Position Type: " + positionType + "\n" +
+                    "Core Competency: " + coreCompetency + "\n"
                     ;
         if (printJob.contains("null")) {
             String replacedValues = printJob.replace("null", "Data not available");
@@ -118,11 +118,5 @@ public class Job {
             return replacedValues;
         }
         return printJob;
-    }
-    public static void main(String[] args) {
-        Job test_job_3;
-        test_job_3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
-        System.out.println(test_job_3);
-
     }
 }

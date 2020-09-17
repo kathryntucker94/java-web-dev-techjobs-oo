@@ -4,8 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.launchcode.techjobs_oo.*;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class JobTest {
 
@@ -21,6 +20,7 @@ public class JobTest {
         test_job_2 = new Job();
         test_job_3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
         test_job_4 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
+
     }
 
     @Test
@@ -38,12 +38,6 @@ public class JobTest {
         assertTrue(test_job_3.getPositionType() instanceof PositionType);
         assertTrue(test_job_3.getCoreCompetency() instanceof CoreCompetency);
 
-        //An attempt to test that the correct values are assigned, need to know if this is even necessary?
-//        assertEquals("Product tester", test_job_3.getName());
-//        assertEquals("ACME", test_job_3.getEmployer().toString());
-//        assertEquals("Desert", test_job_3.getLocation().toString());
-//        assertEquals("Quality Control", test_job_3.getPositionType().toString());
-//        assertEquals("Persistance", test_job_3.getCoreCompetency().toString());
     }
 
     @Test
@@ -55,7 +49,35 @@ public class JobTest {
 
 //    @Test
 //    public void testToStringHasBlankLinesBeforeAndAfter(){
-//
-//        assertEquals();
+//        String testString = test_job_3.toString();
+//        assertEquals(,"");
+//        //assertEquals(testString.charAt(testString.length()-1), "");
 //    }
+
+    @Test
+    public void testToStringContainsLabels(){
+        String test_string = test_job_3.toString();
+        assertTrue(test_string.contains("ID"));
+        assertTrue(test_string.contains("Name"));
+        assertTrue(test_string.contains("Employer"));
+        assertTrue(test_string.contains("Location"));
+        assertTrue(test_string.contains("Position Type"));
+        assertTrue(test_string.contains("Core Competency"));
+    }
+    @Test
+    public void testToStringContainsData(){
+        String test_string = test_job_3.toString();
+        assertTrue(test_string.contains("3"));
+        assertTrue(test_string.contains("Product tester"));
+        assertTrue(test_string.contains("ACME"));
+        assertTrue(test_string.contains("Desert"));
+        assertTrue(test_string.contains("Quality Control"));
+        assertTrue(test_string.contains("Persistence"));
+    }
+
+    @Test
+    public void testToStringReturnsMessageIfFieldIsEmpty(){
+        String test_string = test_job_1.toString();
+        assertTrue(test_string.contains("Data not available"));
+    }
 }
