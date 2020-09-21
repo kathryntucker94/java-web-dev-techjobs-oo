@@ -104,19 +104,48 @@ public class Job {
 
     @Override
     public String toString() {
-            String printJob = "\n" +
-                    "ID: " + id + "\n" +
-                    "Name: " + name + "\n" +
-                    "Employer: " + employer + "\n" +
-                    "Location: " + location + "\n" +
-                    "Position Type: " + positionType + "\n" +
-                    "Core Competency: " + coreCompetency + "\n"
-                    ;
+        String printJob = "\n" +
+                "ID: " + id + "\n" +
+                "Name: " + name + "\n" +
+                "Employer: " + employer + "\n" +
+                "Location: " + location + "\n" +
+                "Position Type: " + positionType + "\n" +
+                "Core Competency: " + coreCompetency + "\n"
+                ;
         if (printJob.contains("null")) {
             String replacedValues = printJob.replace("null", "Data not available");
 
             return replacedValues;
+
+        } if (employer.getValue().isEmpty()) {
+
+            employer.setValue("Data not available");
+
+        } if (location.getValue().isEmpty()) {
+
+            location.setValue("Data not available");
+
+        }if (positionType.getValue().isEmpty()) {
+
+            positionType.setValue("Data not available");
+
+        }if (coreCompetency.getValue().isEmpty()) {
+
+            coreCompetency.setValue("Data not available");
+
+        }if (name == "" ){
+
+            name = ("Data not available");
         }
-        return printJob;
+        String replacedValuePrint = "\n" +
+                "ID: " + id + "\n" +
+                "Name: " + name + "\n" +
+                "Employer: " + employer + "\n" +
+                "Location: " + location + "\n" +
+                "Position Type: " + positionType + "\n" +
+                "Core Competency: " + coreCompetency + "\n"
+                ;
+
+        return replacedValuePrint;
     }
 }

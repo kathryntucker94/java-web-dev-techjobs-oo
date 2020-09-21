@@ -12,6 +12,8 @@ public class JobTest {
     Job test_job_2;
     Job test_job_3;
     Job test_job_4;
+    Job test_job_5;
+    Job test_job_6;
 
     @Before
     public void createJobObjects(){
@@ -20,6 +22,8 @@ public class JobTest {
         test_job_2 = new Job();
         test_job_3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
         test_job_4 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
+        test_job_5 = new Job("Ice cream taster", new Employer(""), new Location("Home"), new PositionType("UX"), new CoreCompetency("Taste"));
+
 
     }
 
@@ -47,12 +51,12 @@ public class JobTest {
 
     }
 
-//    @Test
-//    public void testToStringHasBlankLinesBeforeAndAfter(){
-//        String testString = test_job_3.toString();
-//        assertEquals(,"");
-//        //assertEquals(testString.charAt(testString.length()-1), "");
-//    }
+    @Test
+    public void testToStringHasBlankLinesBeforeAndAfter(){
+        String testString = test_job_3.toString();
+        assertEquals(testString.charAt(0),'\n' );
+        assertEquals(testString.charAt(testString.length()-1), '\n');
+    }
 
     @Test
     public void testToStringContainsLabels(){
@@ -78,6 +82,8 @@ public class JobTest {
     @Test
     public void testToStringReturnsMessageIfFieldIsEmpty(){
         String test_string = test_job_1.toString();
+        String test_string_2 = test_job_5.toString();
         assertTrue(test_string.contains("Data not available"));
+        assertTrue(test_string_2.contains("Data not available"));
     }
 }
